@@ -1,4 +1,4 @@
-FROM node
+FROM mhart/alpine-node
 COPY . /serializor
 WORKDIR /serializor
 RUN npm install

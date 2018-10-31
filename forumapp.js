@@ -21,6 +21,7 @@ app.get('/', (req,res) =>{
 		else
 		{
 			res.write('<html>');
+			res.write('<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>');
 			res.write('<body>');
 			res.write("<h1 align='center'>Welcome to Holia Jas</h1>");
 			res.write("<h3 align='center'>Safest stored comments on the internet! ;)</h3>");
@@ -39,6 +40,7 @@ app.get('/', (req,res) =>{
 	else
 	{
 	res.write('<html>');
+	res.write('<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>');
 	res.write('<body>');
 	res.write("<h1 align='center'>Welcome to Holia Jas</h1>");
 	res.write("<h3 align='center'>Safest stored comments on the internet! ;)</h3>");
@@ -74,7 +76,6 @@ app.get('/iIFe', (req,res) =>{
 	res.send("Did you even try...?");
 });
 //app.get('/endgame',(req,res)=>
-//
 app.get('/flush', (req,res) =>{
 		res.cookie('EizeKosem', '');
 		res.writeHead(302, {'Location':'/'});
