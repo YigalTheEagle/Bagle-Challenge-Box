@@ -9,11 +9,6 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', (req,res) =>{
-	res.write('<html>');
-	res.write('<body>');
-	res.write("<h1 align='center'>Welcome to Holia Jas</h1>");
-	res.write("<h3 align='center'>Safest stored comments on the internet! ;)</h3>");
-	res.write("<table align='center' border=black><tr><td>Comment Number</td><td>Name</td><td>Comment</td></tr>");
 	if(req.cookies.EizeKosem)
 	{
 		var serializedCookie = JSON.parse(new Buffer(req.cookies.EizeKosem,'base64').toString());
@@ -21,18 +16,39 @@ app.get('/', (req,res) =>{
 		if(userComments["fname"].length!=userComments["Comment"].length)
 		{
 			res.cookie('EizeEfes', "eyJZb3UiOiJzdWNrIn0=", {maxAge: 180000000, httpOnly:true});
-			res.send("<script>alert('Playing with cookies will get you fired');</script>");
+			res.end("<script>alert('Playing with cookies will get you fired');</script>");
 		}
-		for(var i=1;i<=userComments["fname"].length;i++)
+		else
 		{
-			res.write('<tr><td>'+i+'</td><td>'+escapehtml(userComments["fname"][i-1])+'</td><td>'+escapehtml(userComments["Comment"][i-1])+'</td></tr>');
+			res.write('<html>');
+			res.write('<body>');
+			res.write("<h1 align='center'>Welcome to Holia Jas</h1>");
+			res.write("<h3 align='center'>Safest stored comments on the internet! ;)</h3>");
+			res.write("<table align='center' border=black><tr><td>Comment Number</td><td>Name</td><td>Comment</td></tr>");
+			for(var i=1;i<=userComments["fname"].length;i++)
+			{
+				res.write('<tr><td>'+i+'</td><td>'+escapehtml(userComments["fname"][i-1])+'</td><td>'+escapehtml(userComments["Comment"][i-1])+'</td></tr>');
+			}
+			res.write('<tr><td colspan="3"><a href="/flush">Restart Challenge</a></td></tr>');
+			res.write('\n');
+			res.write('<form action="/" method="post"><input type="text" name="fname" /><br/><input type="text" name="Comment"><br /><button>Save</button></form>');
+			res.write('</body></html>');
+			res.send();
 		}
 	}
+	else
+	{
+	res.write('<html>');
+	res.write('<body>');
+	res.write("<h1 align='center'>Welcome to Holia Jas</h1>");
+	res.write("<h3 align='center'>Safest stored comments on the internet! ;)</h3>");
+	res.write("<table align='center' border=black><tr><td>Comment Number</td><td>Name</td><td>Comment</td></tr>");
 	res.write('<tr><td colspan="3"><a href="/flush">Restart Challenge</a></td></tr>');
 	res.write('\n');
 	res.write('<form action="/" method="post"><input type="text" name="fname" /><br/><input type="text" name="Comment"><br /><button>Save</button></form>');
 	res.write('</body></html>');
 	res.send();
+	}
 });
 app.get('/strings-everywhere', (req,res) =>{
 	if(req.cookies.EizeKosem)
