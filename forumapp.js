@@ -74,6 +74,7 @@ app.get('/iIFe', (req,res) =>{
 	res.send("Did you even try...?");
 });
 //app.get('/endgame',(req,res)=>
+//
 app.get('/flush', (req,res) =>{
 		res.cookie('EizeKosem', '');
 		res.writeHead(302, {'Location':'/'});
