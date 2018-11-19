@@ -1,20 +1,20 @@
 {
-  "name": "deserialization",
+  "name": "bagle-challenge-box",
   "version": "1.0.0",
   "description": "",
-  "main": "forumapp.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "child_process": "^1.0.2",
     "cookie-parser": "^1.4.3",
     "escape-html": "^1.0.3",
     "express": "^4.16.4",
-    "node-serialize": "^0.0.4"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "start": "node ."
-  },
-  "author": "",
-  "license": "ISC"
+    "mongodb": "^3.1.9",
+    "monk": "^6.0.6",
+    "node-serialize": "0.0.4"
+  }
 }
