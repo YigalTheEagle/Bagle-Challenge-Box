@@ -1,0 +1,17 @@
+version: "2"
+services:
+  app:
+    container_name: bagle-challenge-box
+    restart: always
+    build: .
+    ports:
+      - "80:3000"
+    links:
+      - mongo
+  mongo:
+    container_name: bagle-challenge-box-db
+    image: mvertes/alpine-mongo
+    volumes:
+      - ./serialize-mongo-data:/bagle-challenge-box/data/db
+    ports:
+      - "27017:27017"

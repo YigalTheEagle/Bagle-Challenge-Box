@@ -1,6 +1,6 @@
 FROM mhart/alpine-node
-COPY . /serializor
-WORKDIR /serializor
+COPY . /bagle-challenge-box
+WORKDIR /bagle-challenge-box
 RUN npm install
 
 EXPOSE  3000
