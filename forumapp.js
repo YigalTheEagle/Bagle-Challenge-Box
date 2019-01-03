@@ -6,47 +6,22 @@ var escapehtml = require('escape-html');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('10.0.0.8:27017/applicationusers');//need to change to a hostname to be translated by docker
-var commentsdb =monk('10.0.0.8:27017/usercomments');//need to change to a hostname to be translated by docker
+var db = monk('bagle-db:27017/applicationusers');
+var commentsdb =monk('bagle-db:27017/usercomments');
 const port = 3000;
 
 
 app.use(function(req,res,next){
 	req.db = db;
-// this is to add users to the database incase there are none
-/*var usercollection = req.db.get('applicationusers');
-var x = {"username":"admin","password":"7h!$_p@$$_w!ll_b3_byp@$$3d"};
-usercollection.find(x,{},function(e,docs)
-{
-	console.log(docs);
-	if(docs.length>=1)
-	{
-		console.log('DB is good');
-	}
-	else
-	{
-		usercollection.collection("applicationusers").insert(x,function(err,whatever)
-		{
-			if(err)
-			{ 
-				console.log(err);
-			}
- 	   	});
-	}
-});*/
-// this is to add users to the database incase there are none
 	next();
 });
 app.use(function(req,res,next){
 	req.commentsdbdb = commentsdb;
 	next();
 });
-
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
-
 
 
 app.get('/', (req,res) =>{
@@ -165,9 +140,18 @@ var SuperSecret="who the fuck are you and why are you reading my code?";
 		var DeserializeThisOne;
 		var deserialize=4;
 		var TheyGotIt=false;
+		var CheckForMultipleProperties=0;
 		if(req.headers['serialize-this']=='True'||req.headers['serialize-this']=='true')
 		{
 			deserialize=1;
+			for(i in ReqJSON)
+			{
+				if(i=="postername"||i=="comment")
+				{
+					continue;
+				}
+				CheckForMultipleProperties++;
+			}
 			for(i in ReqJSON)
 			{
 				if(ReqJSON[i].indexOf("_$$ND_FUNC$$_function(){")==0)
@@ -275,6 +259,12 @@ var SuperSecret="who the fuck are you and why are you reading my code?";
 					res.setHeader("A-Hint!","You've only added _$$ND_FUNC$$_, but the code in '/guide-how-to-send-a-function' shows you it's not gonna work, look closely");
 					res.setHeader("Hint!","You've only added _$$ND_FUNC$$_, but the code in '/guide-how-to-send-a-function' shows you it's not gonna work, look closely");
 				}
+				if(CheckForMultipleProperties>1)
+				{
+					res.setHeader("This-Is-A-Hint","You're sending multiple properties aside from the postername and comment. Send them with only 1 additional propery");
+					res.setHeader("A-Hint","You're sending multiple properties aside from the postername and comment. Send them with only 1 additional propery");
+					res.setHeader("Hint","You're sending multiple properties aside from the postername and comment. Send them with only 1 additional propery");
+				}
 			}
 		}
 		if(req.headers['serialize-this']=='True'||req.headers['serialize-this']=='true')
@@ -338,7 +328,7 @@ app.post('/',(req,res) =>{
 	res.setHeader('Mongo-DB','The NoSQL Server');
 	try{
 	collection.find(x,{},function(e,docs){
-		if(e){res.send("alert('You\'re doing something wrong, stop, this is not a hint')")};
+		if(e){res.send("alert(\"You\'re doing something wrong, stop, this is not a hint\")")};
 		if(docs!=null){
 			if(docs.length==1)
 			{	
@@ -348,7 +338,7 @@ app.post('/',(req,res) =>{
 			{
 				if(docs.length>1)
 				{
-					res.send("alert('You\'re close!\nBut you only need the admin user')");
+					res.send("alert(\"You\'re close!\nBut you only need the admin user\")");
 				}
 				else
 				{
@@ -359,6 +349,34 @@ app.post('/',(req,res) =>{
 	}
 	);
 	}
-	catch(ex){res.send("alert('You\'re doing something wrong, stop, this is not a hint')")};
+	catch(ex){res.send("alert(\"You\'re doing something wrong, stop, this is not a hint\")")};
 });
+var firstrun= function(){
+var checkexistinguserscollection = db.get('applicationusers');
+var Check_Admin = {"username": {"$gt":""}};
+checkexistinguserscollection.find(Check_Admin,{},function(e,docs){
+	if(e){console.log("DB has an issue:\n"+e)}
+	if(docs!=null){
+		if(docs.length>1)
+		{
+			console.log("DB is good to go");
+		}
+		else
+		{
+			console.log("DB is empty, attempting to fix...");//Was created to simplify application data migration from one environment to another. Don't read this if you haven't solved the challenge yet, misses all the point!
+			var Hardcoded_Users = [{"username": "admin","password": "7h!$_p@$$_w!ll_b3_byp@$$3d"},{"username": "edw@rd","password": "$c!$$0rh@nd$"}];	
+db.collection("applicationusers").insert(Hardcoded_Users,function(err,whatever){
+if(err){console.log("We couldn't add users because of this issue:\n"+err);}})
+var allTemplateComments = [{"name": "admin","content": "test"},{"name": "admin","content": "test test"},{"name": "admin","content": "comment test test"},{"name": "admin","content": "comment, testing!"},{"name": "admin","content": "comment, forum seems to work! now I want to use it somehow for my other applications... will update"},{"name": "admin","content": "This forum will be used by me to store my functions"},{"name": "admin","content": "Added functionality to store functions in the server-side as Node.JS code to be able to use them in other applications"},{"name": "admin","content": "Other applications will pull these functions to their code, enabling me to safely send functionality to other applications using this forum!"},{"name": "admin","content": "ND FUNC"},{"name": "&lt;script&gt;alert(1337)&lt;script&gt;","content": "\\x3cdetails/open/ontoggle=\\x27alert`win`\\x27\\x3e\\x3csvg/onload=alert(1337)\\x3e\\u003cimg/src=x/onerror=\\x22alert(1337)\\x22\\u003e"},{"name": "Albert A.","content": "Something smart about physics"},{"name": "Justin","content": "Believer"},{"name": "yourmom","content": "lol what is this"},{"name": "kobi","content": "I post comments ;)"},{"name": "\\x3c\\u003c\\u0022\\u0027","content": "\\x3c\\u003c\\u0022\\u0027"},{"name": "admin","content": "ND FUNC"},{"name": "admin","content": "how do I serialize this?"},{"name": "Anonymous user","content": "I'm next to you"},{"name": "everyone","content": "allow all"},{"name": "&lt;script&gt;alert(1337)&lt;script&gt;","content": "\\x3cdetails/open/ontoggle=\\x27alert`win`\\x27\\x3e\\x3csvg/onload=alert(1337)\\x3e\\u003cimg/src=x/onerror=\\x22alert(1337)\\x22\\u003e"},{"name": "zz","content": "zzzzzzzzzzzz"},{"name": "zz","content": "zzzzzzzzzzzz"},{"name": "zz","content": "zzzzzzzzzzzz"},{"name": "zz","content": "zzzzzzzzzzzz"},{"name": "&lt;script&gt;alert(1337)&lt;script&gt;","content": "\\x3cdetails/open/ontoggle=\\x27alert`win`\\x27\\x3e\\x3csvg/onload=alert(1337)\\x3e\\u003cimg/src=x/onerror=\\x22alert(1337)\\x22\\u003e"},{"name": "&lt;script&gt;alert(1337)&lt;script&gt;","content": "\\x3cdetails/open/ontoggle=\\x27alert`win`\\x27\\x3e\\x3csvg/onload=alert(1337)\\x3e\\u003cimg/src=x/onerror=\\x22alert(1337)\\x22\\u003e"},{"name": "admin","content": "What is this? what's going on?"},{"name": "pomba","content": "I am the table!"},{"name": "admin","content": "Who are you guys? how did you gain access to this forum?"},{"name": "admin","content": "Calling the police..."},{"name": "timon","content": "I am the data in the table!"},{"name": "kobi","content": "Where's my umbrella?"},{"name": "KOBI","content": "KOBI"},{"name": "Hacker","content": "\\x3csvg/onload=\\x22confirm`I win`\\x22\\x3e"},{"name": "blabla","content": "blablablablablablablablablablablablablabla"},{"name": "what","content": "is"},{"name": "this","content": "shit"},{"name": "wtf","content": "wtf"},{"name": "admin","content": "I hate you guys"},{"name": "test","content": "test"},{"name": "\\x3cscript\\x3ealert(1337)\\x3cscript\\x3e","content": "\\x3cdetails/open/ontoggle=\\x27alert`win`\\x27\\x3e\\x3csvg/onload=alert(1337)\\x3e\\u003cimg/src=x/onerror=\\x22alert(1337)\\x22\\u003e"}];
+commentsdb.collection("forumcomments").insert(allTemplateComments,function(err,whatever){
+				if(err){console.log("We couldn't add comments because of this issue:\n"+err);}else{console.log("Successfully added users and template comments to the DB, App is good to go!")}
+				});
+		}
+	}
+	else
+	{
+		console.log("Can't connect to DB, app won't work");
+	}
+});
+}();
 app.listen(port,()=>console.log(`App is listening on port ${port}!`));
