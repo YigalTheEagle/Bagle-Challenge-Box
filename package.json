@@ -1,13 +1,13 @@
 {
   "name": "bagle-challenge-box",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "forumapp.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "YigalTheEagle",
+  "license": "",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
