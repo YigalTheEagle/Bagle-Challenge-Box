@@ -47,6 +47,7 @@ app.get('/', (req,res) =>{
 	res.write("<h3 align='center'>You must authenticate to continue</h3>");
 	res.write("<div id='avocado' align='center'></div>");
 	res.write("<div id='sumo' align='center'></div>");
+	res.write("</br></br></br>");
 	res.write("<div align='center'>");
 	res.write('<input type="text" name="username" /><br/><input type="password" name="password"><br /><button onclick="if(gamba.pilpel==true){eval(\'$_GET[boom]\')}">Login</button>');
 	res.write("</div>");
