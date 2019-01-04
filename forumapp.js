@@ -11,6 +11,9 @@ var commentsdb =monk('bagle-db:27017/usercomments');
 const port = 3000;
 
 
+
+//The code below discloses details of the challenge itself.
+//If you wish to enjoy the challenge, don't read it.
 app.use(function(req,res,next){
 	req.db = db;
 	next();
