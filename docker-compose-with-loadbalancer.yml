@@ -1,0 +1,24 @@
+version: '2'
+services:
+    bagle-db:
+        image: mvertes/alpine-mongo
+        restart: always
+        ports: 
+         - 27017
+    bagle-app:
+        image: abbabalagan/bagle-challenge-box
+        restart: always
+        expose: 
+         - "3000"
+        links: 
+         - 'bagle-db'
+         - nginx
+        environment:
+        ##Need to set the VIRTUAL_HOST value to the site name, otherwise NginX will repsond with 503 because of Host header mismatch
+         VIRTUAL_HOST: 'localhost'
+    nginx: 
+        image: jwilder/nginx-proxy
+        volumes:
+          - "/var/run/docker.sock:/tmp/docker.sock:ro"
+        ports:
+          - "80:80"

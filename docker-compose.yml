@@ -8,16 +8,7 @@ services:
     bagle-app:
         image: abbabalagan/bagle-challenge-box
         restart: always
-        expose: 
-         - "3000"
+        ports: 
+         - "80:3000"
         links: 
          - 'bagle-db'
-         - nginx
-        environment:
-         VIRTUAL_HOST: 'localhost'
-    nginx: 
-        image: jwilder/nginx-proxy
-        volumes:
-          - "/var/run/docker.sock:/tmp/docker.sock:ro"
-        ports:
-          - "80:80"
