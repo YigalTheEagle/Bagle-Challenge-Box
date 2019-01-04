@@ -4,7 +4,7 @@ services:
         image: mvertes/alpine-mongo
         restart: always
         ports: 
-         - 27017
+         - "27017"
     bagle-app:
         image: abbabalagan/bagle-challenge-box
         restart: always
