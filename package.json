@@ -15,6 +15,6 @@
     "express": "^4.16.4",
     "mongodb": "^3.1.9",
     "monk": "^6.0.6",
-    "node-serialize": "0.0.4"
+    "node-serialize": "^0.0.4"
   }
 }
