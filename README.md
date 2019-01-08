@@ -8,22 +8,22 @@ Note : This code is purposefully vulnerable to remote code execution, do not run
 
 This challenge will teach you basic NoSQL injection for authentication bypass, advanced JavaScript tricks and NodeJS deserialization.
 
-Description:
-This challenge contains 3 stages:
-1.Authentication bypass
-2.Finding clues in the JavaScript
-3.Executing code on the application server with Node.JS deserialization through unconverntional methods.
+</br>Description:
+</br>This challenge contains 3 stages:
+</br>1.Authentication bypass
+</br>2.Finding clues in the JavaScript
+</br>3.Executing code on the application server with Node.JS deserialization through unconverntional methods.
+</br></br>
+</br>If you read the client side thoroughly enough, only then will you be able to execute code on the server.
+</br>Don't be lazy with it, otherwise you won't get the right payload for the last stage :)
 
-If you read the client side thoroughly enough, only then will you be able to execute code on the server.
-Don't be lazy with it, otherwise you won't get the right payload for the last stage :)
-
-Usage:
-Navigate to the docker-compose.yml file.
-Enter the following:
-
+</br>Usage:
+</br>Navigate to the docker-compose.yml file.
+</br>Enter the following:
+</br></br>
 docker-compose up
 
-
+</br></br></br>
 
 
 
