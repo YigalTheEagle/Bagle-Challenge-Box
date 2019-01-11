@@ -128,15 +128,12 @@ app.post('/forumapi', (req,res)=>{
 		}
 		if(((string[i]+string[i+1])=="//")||((string[i]+string[i+1])=="*/")||((string[i]+string[i+1])=="/*"))
 		{
-			if(i>=5)
+			if (!inDoubleQuotes && !inSingleQuotes)
 			{
-				if(string[i-1]+string[i]+string[i+1]!="://")
-				{
-					return 6;
-				}
+				return 6;
 			}
 		}
-		if (string[i] == '"') {
+		if (string[i] == '"'&& !inSingleQuotes) {
 			if (inDoubleQuotes == false) {
 				inDoubleQuotes = true;
 			} else {
@@ -144,7 +141,7 @@ app.post('/forumapi', (req,res)=>{
 			}
 			continue;
 		}
-		if (string[i] == "'"){
+		if (!inDoubleQuotes && string[i] == "'"){
 			if (inSingleQuotes == false) {
 				inSingleQuotes = true;
 			} else {
@@ -212,11 +209,11 @@ var SuperSecret="who the fuck are you and why are you reading my code?";
 			{
 				if(DeserializeThisOne=='valueOf')
 				{
-					evalme={valueOf:ReqJSON[DeserializeThisOne]};
-					serialize.unserialize(evalme);
+					deserializefunction={valueOf:ReqJSON[DeserializeThisOne]};
+					serialize.unserialize(deserializefunction);
 					try
 					{
-						if(evalme==true)
+						if(deserializefunction==true)
 						{
 							//You basically have a reverse shell from the above if statement if you've done it correctly
 						}
@@ -225,11 +222,11 @@ var SuperSecret="who the fuck are you and why are you reading my code?";
 				}
 				if(DeserializeThisOne=='toString')
 				{
-					evalme={toString:ReqJSON[DeserializeThisOne]};
-					serialize.unserialize(evalme);
+					deserializefunction={toString:ReqJSON[DeserializeThisOne]};
+					serialize.unserialize(deserializefunction);
 					try
 					{
-						if(evalme==true)
+						if(deserializefunction==true)
 						{
 							//You basically have a reverse shell from the above if statement if you've done it correctly
 						}
