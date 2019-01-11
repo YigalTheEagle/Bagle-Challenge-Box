@@ -128,7 +128,13 @@ app.post('/forumapi', (req,res)=>{
 		}
 		if(((string[i]+string[i+1])=="//")||((string[i]+string[i+1])=="*/")||((string[i]+string[i+1])=="/*"))
 		{
-			return 6
+			if(i>=5)
+			{
+				if(string[i-1]+string[i]+string[i+1]!="://")
+				{
+					return 6;
+				}
+			}
 		}
 		if (string[i] == '"') {
 			if (inDoubleQuotes == false) {
