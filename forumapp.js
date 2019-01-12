@@ -61,7 +61,7 @@ app.get('/loginjs',(req,res) => {
 	res.send();
 });
 app.get('/admin',(req,res)=>{
-	res.send('<script>alert("Lol noob you need the API token");document.location="/admin"</script>');
+	res.send('<script>alert("Lol did you realy try this?");document.location="/admin"</script>');
 });
 app.get('/forumapi',(req,res)=>{
 	if(req.headers['x-powered-by-bamba']=='VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=')
@@ -70,13 +70,19 @@ app.get('/forumapi',(req,res)=>{
 		var collection = db.get('forumcomments');
 		collection.find({},{},function(e,docs){ 
 			var userComments = {"Name":[],"Comment":[]};
-			for(var i in docs){
-			userComments["Name"].push(escapehtml(docs[docs.length-i-1]['name']));
-			userComments["Comment"].push(escapehtml(docs[docs.length-i-1]['content']));
-			if(i>39)
+			for(var i in docs)
 			{
-				break;
+				userComments["Name"].push(escapehtml(docs[docs.length-i-1]['name']));
+				userComments["Comment"].push(escapehtml(docs[docs.length-i-1]['content']));
+				if(i>39)
+				{
+					break;
+				}
 			}
+			if(req.headers['serialize-this']=='True'||req.headers['serialize-this']=='true')
+			{
+				userComments["Topim"].push("<p>Dear Admin, to store your function, it must be safe. A function is considered safe when it complies with the following:</p>\n<p>1.A function must not be an Immediately Invoked Function Expression (IIFE), recognized by the following syntax: \nfunction(){your arguments}<yellow>()</yellow></p>\n\n<p>2.To emphasize on 1, any function that deviates from the following will not be treated as a function: <yellow>function(){YOUR FUNCTION}</yellow>      <---- if you put anything after the function's closing curly bracket, it will not be treated as a function in order to prevent an attacker from writing code to the server</p>\n\n<p>3.Any javascript comments or grave accent should not be used.</p>\n\n<p>4.If you want your function to be deserializd, it must still start with the NodeJS serialize function flag like the following example: _$$ND_FUNC$$_function(){<yellow>Put your code here</yellow>}</p>\n\n\n<p>Should you require any further reference, please inspect the WAF rule we've set up here.</p></br></br><h3>This WAF was strengthened with the help of Shlomo Ben-Yosef</h3>");
+				userComments["Metziltaim"].push("apropa='GET';aprapo='/guide-how-to-send-a-function';gamba+'pilpel'");
 			}
 			res.send(userComments);
 		});
