@@ -81,6 +81,7 @@ app.get('/forumapi',(req,res)=>{
 						break;
 					}
 				}
+				res.cookie('StageTwoWasEZ', "VGhpcyBjb29raWUgaXMgc28gYXdlc29tZSwgaXQgZ2V0cyB5b3UgdG8gc3RhZ2UgMyBpZiB5b3UgbG9nb3V0",{maxAge: 180000000, httpOnly:true});
 				res.send(userComments);
 			});
 		}
@@ -136,13 +137,20 @@ app.get('/gethint',(req,res)=>{
 	}
 })
 app.get('/gamba-apropo-start',(req,res)=>{
-	if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
+	if(req.cookies.StageTwoWasEZ=="VGhpcyBjb29raWUgaXMgc28gYXdlc29tZSwgaXQgZ2V0cyB5b3UgdG8gc3RhZ2UgMyBpZiB5b3UgbG9nb3V0")
 	{
-		res.send("bagleapropo=\"xhr.setRequestHeader('X-Powered-By-Bamba','VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=');/*xhr.setRequestHeader('Serialize-This','True');*/xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');\";apropa=\"GET\";aprapo=\"/authenticatedjs\",gamba+'tomato'");
+		res.send("bagleapropo=\"xhr.setRequestHeader('X-Powered-By-Bamba','VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=');xhr.setRequestHeader('Serialize-This','True');xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');\";apropa=\"GET\";aprapo=\"/authenticatedjs\",gamba+'tomato'");
 	}
 	else
 	{
-		res.send('bagleapropo="xhr.setRequestHeader(\'IgNoRe-mE\',\'SWdub3JlIHRoaXMgaGVhZGVyLCBpdCdzIGp1c3QgZm9yIHRoZSBhcHBsaWNhdGlvbiBzbyBJIGNhbiB0cmFjayB5b3VyIHByb2dyZXNz\')";');
+		if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
+		{
+			res.send("bagleapropo=\"xhr.setRequestHeader('X-Powered-By-Bamba','VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=');/*xhr.setRequestHeader('Serialize-This','True');*/xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');\";apropa=\"GET\";aprapo=\"/authenticatedjs\",gamba+'tomato'");
+		}
+		else
+		{
+			res.send('bagleapropo="xhr.setRequestHeader(\'IgNoRe-mE\',\'SWdub3JlIHRoaXMgaGVhZGVyLCBpdCdzIGp1c3QgZm9yIHRoZSBhcHBsaWNhdGlvbiBzbyBJIGNhbiB0cmFjayB5b3VyIHByb2dyZXNz\')";');
+		}
 	}
 })
 app.post('/forumapi', (req,res)=>{
