@@ -139,7 +139,7 @@ app.get('/gethint',(req,res)=>{
 app.get('/gamba-apropo-start',(req,res)=>{
 	if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
 	{
-		res.send('bagle!function(){var YouFinishedStageOne=SetXHR("POST","/");YouFinishedStageOne.setRequestHeader("Content-Type","application/json;charset=UTF-8"),YouFinishedStageOne.send(JSON.stringify({username:"Bagle",password:"Is Fun"})),c.onreadystatechange=function(){4==this.readyState&&200==this.status&&eval(this.responseText)}}();');
+		res.send('bagle!function(){var YouFinishedStageOne=SetXHR("POST","/");YouFinishedStageOne.setRequestHeader("Content-Type","application/json;charset=UTF-8"),YouFinishedStageOne.send(JSON.stringify({username:"Bagle",password:"Is Fun"})),YouFinishedStageOne.onreadystatechange=function(){4==this.readyState&&200==this.status&&eval(this.responseText)}}();');
 	}
 	else
 	{
