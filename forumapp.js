@@ -312,9 +312,9 @@ var SuperSecret="who the fuck are you and why are you reading my code?";
 					}
 					if(TheyGotIt==false)
 					{
-							res.setHeader("This-Is-A-Hint!","You're super close! Learn from var kobi from loginjs how you can invoke a function with an if statement");
-							res.setHeader("A-Hint!","You're super close! Learn from var kobi from loginjs how you can invoke a function with an if statement");
-							res.setHeader("Hint!","You're super close! Learn from var kobi from loginjs how you can invoke a function with an if statement");
+							res.setHeader("This-Is-A-Hint!","You're super close! Learn from var kobi from loginjs how you can use if(requestJSON[i]==0) to invoke your function");
+							res.setHeader("A-Hint!","You're super close! Learn from var kobi from loginjs how you can use if(requestJSON[i]==0) to invoke your function");
+							res.setHeader("Hint!","You're super close! Learn from var kobi from loginjs how you can use if(requestJSON[i]==0) to invoke your function");
 					}
 				}
 				if(deserialize==4)
