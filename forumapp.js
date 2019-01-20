@@ -39,7 +39,7 @@ app.get('/', (req,res) =>{
 	res.write('<html>');
 	res.write('<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/loginjs"></script></head><link href="styles" rel="stylesheet" type="text/css"/>');
 	res.write('<body>');
-	res.write("<h1 align='center'>Welcome to Bagle Challenge Box</h1>");
+	res.write("<h1 align='center'>Welcome to <yellow>Bagle</yellow> Challenge Box</h1>");
 	res.write("<h2 align='center'>Stage 1 - Bypass this login</h2>");
 	res.write("<h3 align='center'>You must authenticate to continue</h3>");
 	res.write("<div id='avocado' align='center'></div>");
@@ -71,7 +71,7 @@ app.get('/forumapi',(req,res)=>{
 			var db = req.commentsdbdb;
 			var collection = db.get('forumcomments');
 			collection.find({},{},function(e,docs){ 
-				var userComments = {"Name":[],"Comment":[],"Topim":"<p>Dear Admin, to store your function, it must be safe. A function is considered safe when it complies with the following:</p>\n<p>1.A function must not be an Immediately Invoked Function Expression (IIFE), recognized by the following syntax: \nfunction(){your arguments}<yellow>()</yellow></p>\n\n<p>2.To emphasize on 1, any function that deviates from the following will not be treated as a function: <yellow>function(){YOUR FUNCTION}</yellow>      <---- if you put anything after the function's closing curly bracket, it will not be treated as a function in order to prevent an attacker from writing code to the server</p>\n\n<p>3.Any javascript comments or grave accent should not be used.</p>\n\n<p>4.If you want your function to be deserializd, it must still start with the NodeJS serialize function flag like the following example: _$$ND_FUNC$$_function(){<yellow>Put your code here</yellow>}</p>\n\n\n<p>Should you require any further reference, please inspect the WAF rule we've set up here.</p></br></br><p>This WAF was strengthened with the help of the Administrator Shlomo Ben-Yosef</p>","Metziltaim":"apropa='GET';aprapo='/guide-how-to-send-a-function';gamba+'pilpel'"};
+				var userComments = {"Name":[],"Comment":[],"Topim":"<p>Dear Admin, to store your function, it must be safe. A function is considered safe when it complies with the following:</p>\n<p>1.A function must not be an Immediately Invoked Function Expression (IIFE), recognized by the following syntax: \nfunction(){your arguments}<yellow>()</yellow></p>\n\n<p>2.To emphasize on 1, any function that deviates from the following will not be treated as a function: <yellow>function(){YOUR FUNCTION}</yellow>      <---- if you put anything after the function's closing curly bracket, it will not be treated as a function in order to prevent an attacker from writing code to the server</p>\n\n<p>3.Any javascript comments or grave accent should not be used.</p>\n\n<p>4.If you want your function to be deserializd, it must still start with the NodeJS serialize function flag like the following example: _$$ND_FUNC$$_function(){<yellow>Put your code here</yellow>}</p>\n\n\n<p>Should you require any further reference, please inspect the WAF rule we've set up here.</p></br></br><p><yellow>Feb_CTF{Stage_2_Flag}</yellow></p></br></br><p>This WAF was strengthened with the help of the Administrator Shlomo Ben-Yosef</p>","Metziltaim":"apropa='GET';aprapo='/guide-how-to-send-a-function';gamba+'pilpel'"};
 				for(var i in docs)
 				{
 					userComments["Name"].push(escapehtml(docs[docs.length-i-1]['name']));
@@ -139,13 +139,31 @@ app.get('/gethint',(req,res)=>{
 app.get('/gamba-apropo-start',(req,res)=>{
 	if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
 	{
-		res.send('bagle!function(){var YouFinishedStageOne=SetXHR("POST","/");YouFinishedStageOne.setRequestHeader("Content-Type","application/json;charset=UTF-8"),YouFinishedStageOne.send(JSON.stringify({username:"Bagle",password:"Is Fun"})),YouFinishedStageOne.onreadystatechange=function(){4==this.readyState&&200==this.status&&eval(this.responseText)}}();');
+		res.send('bagle!function(){var YouFinishedStageOne=SetXHR("POST","/");YouFinishedStageOne.setRequestHeader("Content-Type","application/json;charset=UTF-8"),YouFinishedStageOne.send(JSON.stringify({username:"apropo",password:"has a cool value"})),YouFinishedStageOne.onreadystatechange=function(){4==this.readyState&&200==this.status&&eval(this.responseText)}}();');
 	}
 	else
 	{
 		res.send('bagleapropo="xhr.setRequestHeader(\'IgNoRe-mE\',\'SWdub3JlIHRoaXMgaGVhZGVyLCBpdCdzIGp1c3QgZm9yIHRoZSBhcHBsaWNhdGlvbiBzbyBJIGNhbiB0cmFjayB5b3VyIHByb2dyZXNz\')";');
 	}
 })
+app.get('/bamba',(req,res)=>{
+	if(req.cookies.StageTwoWasEZ=="VGhpcyBjb29raWUgaXMgc28gYXdlc29tZSwgaXQgZ2V0cyB5b3UgdG8gc3RhZ2UgMyBpZiB5b3UgbG9nb3V0")
+	{
+		res.send("bagleapropo=\"xhr.setRequestHeader('X-Powered-By-Bamba','VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=');xhr.setRequestHeader('Serialize-This','True');xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');\";apropa=\"GET\";aprapo=\"/authenticatedjs\",gamba+'tomato'");
+	}
+	else
+	{
+		if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
+		{
+			res.send("bagleapropo=\"xhr.setRequestHeader('X-Powered-By-Bamba','VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=');/*xhr.setRequestHeader('Serialize-This','True');*/xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');\";apropa=\"GET\";aprapo=\"/authenticatedjs\",gamba+'tomato'");
+		}
+		else
+		{
+			res.send('<script>alert("Lol noob you need to login first");document.location="/bamba"</script>');
+		}
+	}
+})
+
 app.post('/forumapi', (req,res)=>{
 	var checkforiife = function(string){
 	var openCurly = 0;
@@ -333,7 +351,7 @@ var SuperSecret="who the fuck are you and why are you reading my code?";
 		if(req.headers['serialize-this']=='True'||req.headers['serialize-this']=='true')
 		{
 			res.setHeader('Serialization','True');
-			var serializationResponse = {"Zebra":escapehtml(ReqJSON["Zebra"]),"Dinasaur":escapehtml(ReqJSON["Dinasaur"]),"Topim":"<p>Dear Admin, to store your function, it must be safe. A function is considered safe when it complies with the following:</p>\n<p>1.A function must not be an Immediately Invoked Function Expression (IIFE), recognized by the following syntax: \nfunction(){your arguments}<yellow>()</yellow></p>\n\n<p>2.To emphasize on 1, any function that deviates from the following will not be treated as a function: <yellow>function(){YOUR FUNCTION}</yellow>      <---- if you put anything after the function's closing curly bracket, it will not be treated as a function in order to prevent an attacker from writing code to the server</p>\n\n<p>3.Any javascript comments or grave accent should not be used.</p>\n\n<p>4.If you want your function to be deserializd, it must still start with the NodeJS serialize function flag like the following example: _$$ND_FUNC$$_function(){<yellow>Put your code here</yellow>}</p>\n\n\n<p>Should you require any further reference, please inspect the WAF rule we've set up here.</p></br></br><h3>This WAF was strengthened with the help of Shlomo Ben-Yosef</h3>","Metziltaim":"apropa='GET';aprapo='/guide-how-to-send-a-function';gamba+'pilpel'"};
+			var serializationResponse = {"Zebra":escapehtml(ReqJSON["Zebra"]),"Dinasaur":escapehtml(ReqJSON["Dinasaur"]),"Topim":"<p>Dear Admin, to store your function, it must be safe. A function is considered safe when it complies with the following:</p>\n<p>1.A function must not be an Immediately Invoked Function Expression (IIFE), recognized by the following syntax: \nfunction(){your arguments}<yellow>()</yellow></p>\n\n<p>2.To emphasize on 1, any function that deviates from the following will not be treated as a function: <yellow>function(){YOUR FUNCTION}</yellow>      <---- if you put anything after the function's closing curly bracket, it will not be treated as a function in order to prevent an attacker from writing code to the server</p>\n\n<p>3.Any javascript comments or grave accent should not be used.</p>\n\n<p>4.If you want your function to be deserializd, it must still start with the NodeJS serialize function flag like the following example: _$$ND_FUNC$$_function(){<yellow>Put your code here</yellow>}</p>\n\n\n<p>Should you require any further reference, please inspect the WAF rule we've set up here.</p></br></br><p><yellow>Feb_CTF{Stage_2_Flag}</yellow></p></br></br><p>This WAF was strengthened with the help of Shlomo Ben-Yosef</p>","Metziltaim":"apropa='GET';aprapo='/guide-how-to-send-a-function';gamba+'pilpel'"};
 			var filteredrequest = {"name":escapehtml(ReqJSON["Zebra"]),"content":escapehtml(ReqJSON["Dinasaur"])};
 			commentsdb.collection("forumcomments").insert(filteredrequest,function(err,whatever){
 				if(err){ throw err;}
@@ -386,36 +404,30 @@ app.get('/authenticatedjs',(req,res)=>{
 	}
 });
 app.post('/',(req,res) =>{
-	if(req.cookies.StageTwoWasEZ=="VGhpcyBjb29raWUgaXMgc28gYXdlc29tZSwgaXQgZ2V0cyB5b3UgdG8gc3RhZ2UgMyBpZiB5b3UgbG9nb3V0")
+	if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
 	{
-		res.send("apropo=\"xhr.setRequestHeader('X-Powered-By-Bamba','VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=');xhr.setRequestHeader('Serialize-This','True');xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');\";apropa=\"GET\";aprapo=\"/authenticatedjs\",gamba+'tomato'");
+		res.send("apropa=\"GET\";aprapo=\"/bamba\",gamba+'Feb_CTF{Stage_1_Flag}'");
 	}
 	else
 	{
-		if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
+		var x = {"username":req.body.username,"password":req.body.password};
+		var db = req.db;
+		var collection = db.get('applicationusers');
+		if(req.cookies.GiveMeHints)
 		{
-			res.send("apropo=\"xhr.setRequestHeader('X-Powered-By-Bamba','VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=');/*xhr.setRequestHeader('Serialize-This','True');*/xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');\";apropa=\"GET\";aprapo=\"/authenticatedjs\",gamba+'tomato'");
+			res.setHeader('This-Is-A-Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
+			res.setHeader('A-Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
+			res.setHeader('Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
 		}
-		else
-		{
-			var x = {"username":req.body.username,"password":req.body.password};
-			var db = req.db;
-			var collection = db.get('applicationusers');
-			if(req.cookies.GiveMeHints)
-			{
-				res.setHeader('This-Is-A-Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
-				res.setHeader('A-Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
-				res.setHeader('Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
-			}
-			res.setHeader('Mongo-DB','The NoSQL Server');
-			try{
+		res.setHeader('Mongo-DB','The NoSQL Server');
+		try{
 			collection.find(x,{},function(e,docs){
-				if(e){res.send("alert(\"You\'re doing something wrong, stop, this is not a hint\")")};
-				if(docs!=null){
+			if(e){res.send("alert(\"You\'re doing something wrong, stop, this is not a hint\")")};
+			if(docs!=null){
 					if(docs.length==1)
 					{	
 							res.cookie('IWonStageOne', "bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl",{maxAge: 180000000, httpOnly:true});
-							res.send("apropo=\"xhr.setRequestHeader('X-Powered-By-Bamba','VGhpcyBpcyBqdXN0IHRoZSBBUEkgdG9rZW4=');/*xhr.setRequestHeader('Serialize-This','True');*/xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');\";apropa=\"GET\";aprapo=\"/authenticatedjs\",gamba+'tomato'");
+							res.send("apropa=\"GET\";aprapo=\"/bamba\",gamba+'Feb_CTF{Stage_1_Flag}'");
 					}
 					else
 					{
@@ -431,10 +443,10 @@ app.post('/',(req,res) =>{
 				}
 			}
 			);
-			}
-			catch(ex){res.send("alert(\"You\'re doing something wrong, stop, this is not a hint\")")};
+		}
+		catch(ex){res.send("alert(\"You\'re doing something wrong, stop, this is not a hint\")")};
 		}	
-	}
+	
 });
 var firstrun= function(){
 var checkexistinguserscollection = db.get('applicationusers');
