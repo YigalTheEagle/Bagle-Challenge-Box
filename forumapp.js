@@ -25,9 +25,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get('/', (req,res) =>{
-	if(!req.cookies.IgnoreMe)
+	if(!req.cookies.DontTouchMe)
 	{
-		res.cookie('IgnoreMe', "e2FkbWluOnRydWV9IFQyZ3NJSGx2ZFNkeVpTQjBjbmxwYm1jZ2RHaHBjeUJXTWxaellrTkNNR0ZIYkhwSlIyeDZZbWxrTUVsSVpHOVpXRkZuWlZjNU1Vb3pTbXhKU0U0eFkwaENkbU15Vm10SlNGSjJTVWRTZGt4cE5IVkpRMEpVVlRCS2NWZFdZekJhTVc5NVlrUktZVlV3U1RGWmFrNVdXakZzVkZGdE9XaFdlbFYzVTFWTmQxb3lUWHBWYmxwcVVUQktjbGRzWkU5a2JIQklZa2hXWVdWVlNtaFZNRnBoWTJ4a2MxUnJUbWxTYkc4eVdWUk9iMVpHV2xkalNIQlhUVlp3VUZwRlpGZFNiVTVIVkdzMVYxWnRkRFJXYlhocVpEQXhXRlZZYkZOWFIyaFZWakJrTkdNeFZuSldiVVpZVm0xNE1GUldVbE5WTVVwMFpVaHNWMDFxUmtoV1JFcExWbXhhY1Zkc2NGZFdia0Y2Vm10amVGTXhaRmhTYTFwWFlrZG9XRmxyVm5kVFZscFZVMWhvVjAxWFVraFdNalZMVmpKS1JtTklRbFpoYTNCMldrUkdZVmRIVmtkVWJHUk9WbGhDV1ZZeWRHRmhNV1JJVTJ4YVdHSkdXbFpXYkZwTFYwWlNWbGRzV214V01VcEtWa2N4YjJGV1NsbFJhbHBYVmtWdk1GbHFSbHBsVmtwMVUyeG9hRTB5YUZsV1JscGhaREpHUjJFemFGaGhNbEp4VkZaa1UyVldVWGhYYlhSb1ZtczFSMVV5ZUhkV01rcEhVMnQwVlZac2NGZGFWbHBMWkZaU2MxVnNhRk5OTW1neVZteGpkMlZIU1hoYVJXUnBVMFZ3YUZWc1VsZFVNVnAwWlVWMFYySkdXakJhVldocllWWktjbU5FUmxaV00xSXpWakJrUm1WSFRrZFZiSEJYWWtoQ2IxZFVTalJoTVZwWFVtNU9ZVkp0VW5CV2JYUlhUVEZhYzJGSVpGTk5WbXcwVmpGb2IxbFdUa1pqUm1oYVlURmFNMVl3V2xkalZsSnlUbFU1VmxaRVJsSldWbEY0VlZaV1ZVMUVNRGxWUmtVNVVRPT0=",{maxAge: 180000000, httpOnly:true});
+		res.cookie('DontTouchMe', "e2FkbWluOnRydWV9IFQyZ3NJSGx2ZFNkeVpTQjBjbmxwYm1jZ2RHaHBjeUJXTWxaellrTkNNR0ZIYkhwSlIyeDZZbWxrTUVsSVpHOVpXRkZuWlZjNU1Vb3pTbXhKU0U0eFkwaENkbU15Vm10SlNGSjJTVWRTZGt4cE5IVkpRMEpVVlRCS2NWZFdZekJhTVc5NVlrUktZVlV3U1RGWmFrNVdXakZzVkZGdE9XaFdlbFYzVTFWTmQxb3lUWHBWYmxwcVVUQktjbGRzWkU5a2JIQklZa2hXWVdWVlNtaFZNRnBoWTJ4a2MxUnJUbWxTYkc4eVdWUk9iMVpHV2xkalNIQlhUVlp3VUZwRlpGZFNiVTVIVkdzMVYxWnRkRFJXYlhocVpEQXhXRlZZYkZOWFIyaFZWakJrTkdNeFZuSldiVVpZVm0xNE1GUldVbE5WTVVwMFpVaHNWMDFxUmtoV1JFcExWbXhhY1Zkc2NGZFdia0Y2Vm10amVGTXhaRmhTYTFwWFlrZG9XRmxyVm5kVFZscFZVMWhvVjAxWFVraFdNalZMVmpKS1JtTklRbFpoYTNCMldrUkdZVmRIVmtkVWJHUk9WbGhDV1ZZeWRHRmhNV1JJVTJ4YVdHSkdXbFpXYkZwTFYwWlNWbGRzV214V01VcEtWa2N4YjJGV1NsbFJhbHBYVmtWdk1GbHFSbHBsVmtwMVUyeG9hRTB5YUZsV1JscGhaREpHUjJFemFGaGhNbEp4VkZaa1UyVldVWGhYYlhSb1ZtczFSMVV5ZUhkV01rcEhVMnQwVlZac2NGZGFWbHBMWkZaU2MxVnNhRk5OTW1neVZteGpkMlZIU1hoYVJXUnBVMFZ3YUZWc1VsZFVNVnAwWlVWMFYySkdXakJhVldocllWWktjbU5FUmxaV00xSXpWakJrUm1WSFRrZFZiSEJYWWtoQ2IxZFVTalJoTVZwWFVtNU9ZVkp0VW5CV2JYUlhUVEZhYzJGSVpGTk5WbXcwVmpGb2IxbFdUa1pqUm1oYVlURmFNMVl3V2xkalZsSnlUbFU1VmxaRVJsSldWbEY0VlZaV1ZVMUVNRGxWUmtVNVVRPT0=",{maxAge: 180000000, httpOnly:true});
 	}
 	if(req.cookies.GiveMeHints)
 	{
@@ -35,7 +35,7 @@ app.get('/', (req,res) =>{
 		res.setHeader('A-Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
 		res.setHeader('Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
 	}
-	res.setHeader('Mongo-DB','I Love Mangoes');
+	res.setHeader('Mango-DaBa','I Love Mangoes');
 	res.write('<html>');
 	res.write('<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script src="/loginjs"></script></head><link href="styles" rel="stylesheet" type="text/css"/>');
 	res.write('<body>');
@@ -51,13 +51,9 @@ app.get('/', (req,res) =>{
 	res.write('</body></html>');
 	res.send();
 });
-app.get('/logout', (req,res) =>{
-		res.writeHead(302, {'Location':'/'});
-		res.send();
-});
 app.get('/loginjs',(req,res) => {
 	res.writeHead(200, {'Content-Type':'application/javascript'});
-	res.write('var look;var have;var apropo;var aprapo;var apropa;var aprapa;var pomba;var timon=[];var dambo;var cinderella;var sub_zero=false;setInterval(function(){have+"fun";},5000);function SetXHR(a,b,c){var xhr=new XMLHttpRequest();xhr.open(a,b);eval(c);return xhr}var gamba={toString:function(){var bisli=SetXHR(apropa,aprapo,apropo);bisli.send(aprapa),aprapa=null,bisli.onreadystatechange=function(){4==this.readyState&&200==this.status&&(0==this.responseText.indexOf("bagle")?eval(this.responseText.slice(5)):alert`Don\'t forget to `);look+"at the client side code for clues! especially on stage 2 ;)";look=null;}},pilpel:{valueOf:function(){var c=SetXHR("POST","/");c.setRequestHeader("Content-Type","application/json;charset=UTF-8"),c.send(JSON.stringify({username:document.getElementsByTagName("input")[0].value,password:document.getElementsByTagName("input")[1].value})),c.onreadystatechange=function(){4==this.readyState&&200==this.status&&eval(this.responseText)}}}};var kobi={valueOf: function(){var tokyo=SetXHR(apropa,aprapo,apropo);tokyo.send(aprapa);aprapa=null;tokyo.onreadystatechange=function(){if(this.readyState==4&&this.status==200){var t=JSON.parse(this.responseText);for(i=1;i<timon.length-1;i++){timon[timon.length-1-i].tds[1].innerHTML=timon[timon.length-2-i].tds[1].innerHTML;timon[timon.length-1-i].tds[2].innerHTML=timon[timon.length-2-i].tds[2].innerHTML;}timon[0].tds[1].innerHTML=t.Zebra;timon[0].tds[2].innerHTML=t.Dinasaur;if(t.Topim&&t.Metziltaim&&!sub_zero){cinderella.innerHTML+=(t.Topim);eval(t.Metziltaim);sub_zero=true;}}}}};var MeGiveHints;!function(){apropa="GET";aprapo="/gamba-apropo-start";gamba+"Let\'s get this started";}();var send={toString:function(){apropa="POST";aprapo="/forumapi";aprapa=JSON.stringify({"Zebra":document.getElementsByTagName("input")[0].value,"Dinasaur":document.getElementsByTagName("textarea")[0].value});if(kobi==0){alert("Kobi can never be a 0 ;)")};}}');
+	res.write('var have,a,look;var apropo;var aprapo;var apropa;var aprapa;var pomba;var timon=[];var dambo;var cinderella;var sub_zero=false;setInterval(function(){have+"fun";},5000);function SetXHR(a,b,c){var xhr=new XMLHttpRequest();xhr.open(a,b);eval(c);return xhr}var gamba={toString:function(){var bisli=SetXHR(apropa,aprapo,apropo);bisli.send(aprapa),aprapa=null,bisli.onreadystatechange=function(){4==this.readyState&&200==this.status&&(0==this.responseText.indexOf("bagle")?eval(this.responseText.slice(5)):alert`Something bad happened, I suggest you refresh`);look+"at the client side code for clues! especially on stage 2 ;)";look=null;}},pilpel:{valueOf:function(){var c=SetXHR("POST","/");c.setRequestHeader("Content-Type","application/json;charset=UTF-8"),c.send(JSON.stringify({username:document.getElementsByTagName("input")[0].value,password:document.getElementsByTagName("input")[1].value})),c.onreadystatechange=function(){4==this.readyState&&200==this.status&&eval(this.responseText)}}}};var kobi={valueOf: function(){var tokyo=SetXHR(apropa,aprapo,apropo);tokyo.send(aprapa);aprapa=null;tokyo.onreadystatechange=function(){if(this.readyState==4&&this.status==200){var t=JSON.parse(this.responseText);for(i=1;i<timon.length-1;i++){timon[timon.length-1-i].tds[1].innerHTML=timon[timon.length-2-i].tds[1].innerHTML;timon[timon.length-1-i].tds[2].innerHTML=timon[timon.length-2-i].tds[2].innerHTML;}timon[0].tds[1].innerHTML=t.Zebra;timon[0].tds[2].innerHTML=t.Dinasaur;if(t.Topim&&t.Metziltaim&&!sub_zero){cinderella.innerHTML+=(t.Topim);eval(t.Metziltaim);sub_zero=true;}}}}};!function(){apropa="GET";aprapo="/gamba-apropo-start";gamba+"Let\'s get this started";}();var send={toString:function(){apropa="POST";aprapo="/forumapi";aprapa=JSON.stringify({"Zebra":document.getElementsByTagName("input")[0].value,"Dinasaur":document.getElementsByTagName("textarea")[0].value});if(kobi==0){alert("Kobi can never be a 0 ;)")};}}');
 	res.send();
 });
 app.get('/admin',(req,res)=>{
@@ -139,11 +135,11 @@ app.get('/gethint',(req,res)=>{
 app.get('/gamba-apropo-start',(req,res)=>{
 	if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
 	{
-		res.send('bagle!function(){var YouFinishedStageOne=SetXHR("POST","/");YouFinishedStageOne.setRequestHeader("Content-Type","application/json;charset=UTF-8"),YouFinishedStageOne.send(JSON.stringify({username:"apropo",password:"has a cool value"})),YouFinishedStageOne.onreadystatechange=function(){4==this.readyState&&200==this.status&&eval(this.responseText)}}();MeGiveHints=setInterval(function(){if(confirm("Do you want help?")){apropa="GET";aprapo="/gethint";gamba+"The hint changes each stage, but try on your own first!";}},1200000);');
+		res.send('bagle!function(){var YouFinishedStageOne=SetXHR("POST","/");YouFinishedStageOne.setRequestHeader("Content-Type","application/json;charset=UTF-8"),YouFinishedStageOne.send(JSON.stringify({username:"apropo",password:"has a cool value"})),YouFinishedStageOne.onreadystatechange=function(){4==this.readyState&&200==this.status&&eval(this.responseText)}}();a=setInterval(function(){if(confirm("Do you want help?")){apropa="GET";aprapo="/gethint";gamba+"The hint changes each stage, but try on your own first!";}},1200000);');
 	}
 	else
 	{
-		res.send('bagleapropo="xhr.setRequestHeader(\'IgNoRe-mE\',\'d293IHlvdSBrbm93IGJhc2U2ND8NCmMzUnZjQ0JvWlhKbElIQnNaV0Z6WlEwS1VqSTVkbHBEUW5GaU1raw==\')";MeGiveHints=setInterval(function(){if(confirm("Do you want help?")){apropa="GET";aprapo="/gethint";gamba+"The hint changes each stage, but try on your own first!";}},1200000);');
+		res.send('bagleapropo="xhr.setRequestHeader(\'IgNoRe-mE\',\'d293IHlvdSBrbm93IGJhc2U2ND8NCmMzUnZjQ0JvWlhKbElIQnNaV0Z6WlEwS1VqSTVkbHBEUW5GaU1raw==\')";a=setInterval(function(){if(confirm("Do you want help?")){apropa="GET";aprapo="/gethint";gamba+"The hint changes each stage, but try on your own first!";}},1200000);');
 	}
 })
 app.get('/bamba',(req,res)=>{
@@ -321,7 +317,7 @@ var SuperSecret="who the fuck are you and why are you reading my code?";
 						res.setHeader("A-Hint!","valueOf != valueof");
 						res.setHeader("Hint!","valueOf != valueof");
 					}
-					if(TheyGotIt==false)
+					if(TheyGotIt==false&&DeserializeThisOne!='valueof')
 					{
 							res.setHeader("This-Is-A-Hint!","You're super close! Learn from var kobi from loginjs how you can use if(requestJSON[i]==0) to invoke your function");
 							res.setHeader("A-Hint!","You're super close! Learn from var kobi from loginjs how you can use if(requestJSON[i]==0) to invoke your function");
@@ -412,7 +408,7 @@ app.get('/authenticatedjs',(req,res)=>{
 app.post('/',(req,res) =>{
 	if(req.cookies.IWonStageOne=="bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl")
 	{
-		res.send("apropa=\"GET\";aprapo=\"/bamba\",gamba+'Bagle_Flag{!_L0V3_M@NG03$}'");
+		res.send("/*Logged in! Good job! Generating API token...*/apropa=\"GET\";aprapo=\"/bamba\",gamba+'Bagle_Flag{!_L0V3_M@NG03$}'");
 	}
 	else
 	{
@@ -425,7 +421,7 @@ app.post('/',(req,res) =>{
 			res.setHeader('A-Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
 			res.setHeader('Hint!','You want to log in as admin, and MongoDB has some operators you can look up');
 		}
-		res.setHeader('Mongo-DB','The NoSQL Server');
+		res.setHeader('Mango-DaBa','I Love Mangoes');
 		try{
 			collection.find(x,{},function(e,docs){
 			if(e){res.send("alert(\"You\'re doing something wrong, stop, this is not a hint\")")};
@@ -433,7 +429,7 @@ app.post('/',(req,res) =>{
 					if(docs.length==1)
 					{	
 							res.cookie('IWonStageOne', "bGVhdmUgdGhpcyBjb29raWUgYWxvbmUsIGl0J3MgdG8ga2VlcCB5b3UgbG9nZ2VkIGluIGlmIHlvdSByZWZyZXNoIHRoZSBwYWdl",{maxAge: 180000000, httpOnly:true});
-							res.send("apropa=\"GET\";aprapo=\"/bamba\",gamba+'Bagle_Flag{!_L0V3_M@NG03$}'");
+							res.send("/*Logged in! Good job! Generating API token...*/apropa=\"GET\";aprapo=\"/bamba\",gamba+'Bagle_Flag{!_L0V3_M@NG03$}'");
 					}
 					else
 					{
