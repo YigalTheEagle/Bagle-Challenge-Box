@@ -12,7 +12,7 @@ This challenge will teach you basic NoSQL injection for authentication bypass, a
 </br>This challenge contains 3 stages:
 </br>1.Authentication bypass
 </br>2.Finding clues in the JavaScript
-</br>3.Executing code on the application server with Node.JS deserialization through unconverntional methods.
+</br>3.Executing code on the application server with Node.JS deserialization through unconventional methods.
 </br></br>
 </br>If you read the client side thoroughly enough, only then will you be able to execute code on the server.
 </br>Don't be lazy with it, otherwise you won't get the right payload for the last stage :)
